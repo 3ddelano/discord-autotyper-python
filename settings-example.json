@@ -1,22 +1,23 @@
 {
-	"hotkey": "Key.f5",
-	"exitkey": "Key.f6",
-	"showKeyCode": true,
-	"commands": [
-		{
-			"text": "first command",
-			"waittime": 45,
-			"randomtime": true
-		},
-		{
-			"text": "second command",
-			"waittime": 40,
-			"randomtime": true
-		},
-		{
-			"text": "third command",
-			"waittime": 40,
-			"randomtime": true
-		}
-	]
+    "hotkey": "Key.f5",
+    "exitkey": "Key.f6",
+    "showKeyCode": true,
+    "randomSkip": 0.1,
+    "commands": [
+        {
+            "text": "first command",
+            "waittime": 45,
+            "randomtime": true
+        },
+        {
+            "text": "second command",
+            "waittime": 40,
+            "randomtime": true
+        },
+        {
+            "text": "third command",
+            "waittime": 40,
+            "randomtime": true
+        }
+    ]
 }

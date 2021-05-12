@@ -34,14 +34,18 @@ def add_command(text, waittime, isRandom):
     global cmd_count
 
     if started:
-        queue.append({"text": text, "waittime": waittime})
         randomtime = 0
         if isRandom:
             randomtime = floor(randint(0, 60))
-
-        cmd_count += 1
-        print(
-            f"sending cmd: {text} | next in {waittime + randomtime}s | total commands: {cmd_count}")
+        print(randint(0, 100) / 100)
+        if randint(0, 100) / 100 <= settings["randomSkip"]:
+            print(
+                f"skipped command: {text} | next in {waittime + randomtime}s | total commands: {cmd_count}")
+        else:
+            cmd_count += 1
+            queue.append({"text": text, "waittime": waittime})
+            print(
+                f"sending cmd: {text} | next in {waittime + randomtime}s | total commands: {cmd_count}")
         t = Timer(waittime + randomtime, add_command, args=(
             text, waittime, isRandom))
         t.start()
