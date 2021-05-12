@@ -19,23 +19,29 @@ Download the repo as a zip and extract it to a folder. Open a command prompt in 
 ## settings.json
 This is the configuration file used by the program.
 
-| Key         | Type    | Value   |
-| ----------- | ------- | ------- |
-| hotkey      | string  | The `KeyCode` of the key to start and pause the autotyping. eg. `Key.f5` or `Key.f6` |
-| exitkey | string  | The `KeyCode` of the key used to exit the program. eg. `Key.f5` or `Key.f6` |
-| showKeyCode | boolean | Used as a helper to show the `KeyCode` of the pressed key |
-| randomSkip | float | A value from 0 to 1 indicating whether to skip a command randomly to prevent ban and blacklisting |
-| commands    | array   | An array of `command object` |
+| Key         | Type    | Value                                                                                             |
+| ----------- | ------- | ------------------------------------------------------------------------------------------------- |
+| hotkey      | string  | The `KeyCode` of the key to start and pause the autotyping. eg. `Key.f5` or `Key.f6`              |
+| exitkey     | string  | The `KeyCode` of the key used to exit the program. eg. `Key.f5` or `Key.f6`                       |
+| showKeyCode | boolean | Used as a helper to show the `KeyCode` of the pressed key                                         |
+| randomSkip  | float   | A value from 0 to 1 indicating whether to skip a command randomly to prevent ban and blacklisting |
+| commands    | array   | An array of `command object`                                                                      |
+| onetime     | object  | A JS object containing some settings. See `onetime object` below                                  |
 
 #### command object
 Each command is a object with three keys
-| Key | Type | Value  |
-| ---------- | ------- | ------- |
-| text       | string  | The command you want to send |
-| waittime   | integer | The time in seconds to wait before sending the command |
+| Key        | Type    | Value                                                                                                                  |
+| ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| text       | string  | The command you want to send                                                                                           |
+| waittime   | integer | The time in seconds to wait before sending the command                                                                 |
 | randomtime | boolean | If enabled, a random delay will be added to the `waittime` so as to reduce the chance of getting banned or blacklisted |
 
-
+#### onetime object
+| Key      | Type    | Value                                                                            |
+| -------- | ------- | -------------------------------------------------------------------------------- |
+| hotkey   | string  | The `KeyCode` of the key to start the onetime commands. eg. `Key.f7` or `Key.f8` |
+| delay    | integer | The time in seconds to wait before sending each of the onetime commands          |
+| commands | array   | An array of strings each containing the command text to be sent.                 |
 
 ## Examples
 ##### Single command
@@ -52,7 +58,12 @@ You want to send the command `pls beg` after every 45s with a random delay. You 
             "waittime": 45,
             "randomtime": true
         }
-    ]
+    ],
+    "onetime": {
+        "hotkey": "Key.f8",
+        "delay": 3,
+        "commands": []
+    }
 }
 ```
 ##### Multiple commands
@@ -79,9 +90,26 @@ You want to send the command `pls beg` after every 45s with a random delay, `pls
             "waittime": 40,
             "randomtime": true
         }
-    ]
+    ],
+    "onetime": {
+        "hotkey": "Key.f8",
+        "delay": 3,
+        "commands": []
+    }
 }
 ```
+##### Using onetime commands
+You want the commands `pls sell fish all` , `pls sell deer all` and `pls sell bread all` to be sent when the `F7` key is pressed. The delay between each command is 4s.
+The following will be the `onetime` object:
+{
+"key": "Key.f7",
+"delay": 4,
+"commands": [
+	"pls sell fish all",
+	"pls sell deer all".
+	"pls sell bread all"
+]
+}
 ## Legal Warning
 This application is not endorsed or affiliated with Discord or any bot for Discord. Usage of this application may also cause a violation of the agreed Terms of Service between you and Discord or a bot.
 

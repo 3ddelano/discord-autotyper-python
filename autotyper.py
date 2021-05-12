@@ -14,11 +14,17 @@ except FileNotFoundError:
 
 settings = json.load(open("./settings.json"))
 queue = []
+onetime_queue = []
 timers = []
+
 cmd_count = 0
+
 started = False
 exited = False
 cooldown = False
+onetime_cooldown = False
+
+onetime_delay = int(settings["onetime"]["delay"])
 controller = Controller()
 
 
@@ -64,6 +70,16 @@ def init_typer():
                     cmd["randomtime"] or False)
 
 
+def remove_cooldown():
+    global cooldown
+    cooldown = False
+
+
+def remove_onetime_cooldown():
+    global onetime_cooldown
+    onetime_cooldown = not onetime_cooldown
+
+
 def on_key_press(key):
     if hasattr(key, "char"):
         key = str(key.char)
@@ -81,21 +97,25 @@ def on_key_press(key):
             print("Started.")
             init_typer()
         else:
-            print("Paused.")
-    elif key == settings["exitkey"]:
+            print("Stopped.")
+    if key == settings["exitkey"]:
         print("Exited.")
+        started = False
         exited = True
         return False
+
+    global onetime_cooldown
+    global onetime_queue
+    if key == settings["onetime"]["hotkey"]:
+        print("Started onetime cmds.")
+        cmds = settings["onetime"]["commands"]
+        for i in cmds:
+            onetime_queue.append(i)
 
 
 print("Discord AutoTyper\nWaiting for hotkey to be pressed...")
 listener = Listener(on_press=on_key_press)
 listener.start()
-
-
-def removeCooldown():
-    global cooldown
-    cooldown = False
 
 
 while not exited:
@@ -105,4 +125,16 @@ while not exited:
                 cooldown = True
                 send_command(queue[0]["text"])
                 queue.pop(0)
-                Timer(1.0, removeCooldown).start()
+                Timer(1.0, remove_cooldown).start()
+
+    if len(onetime_queue) > 0:
+        if not onetime_cooldown:
+            onetime_cooldown = True
+            send_command(onetime_queue[0])
+            print(f"sending onetime cmd: {onetime_queue[0]}")
+            onetime_queue.pop(0)
+
+            if len(onetime_queue) == 0:
+                print("finished sending onetime cmds.")
+
+            Timer(onetime_delay, remove_onetime_cooldown).start()
