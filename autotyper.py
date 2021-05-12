@@ -37,7 +37,6 @@ def add_command(text, waittime, isRandom):
         randomtime = 0
         if isRandom:
             randomtime = floor(randint(0, 60))
-        print(randint(0, 100) / 100)
         if randint(0, 100) / 100 <= settings["randomSkip"]:
             print(
                 f"skipped command: {text} | next in {waittime + randomtime}s | total commands: {cmd_count}")
@@ -89,7 +88,7 @@ def on_key_press(key):
         return False
 
 
-print("Discord AutoTyper")
+print("Discord AutoTyper\nWaiting for hotkey to be pressed...")
 listener = Listener(on_press=on_key_press)
 listener.start()
 
