@@ -1,7 +1,8 @@
 
 # discord-autotyper-python
 A python script to auto send commands in Discord or any other program.
-
+<br>
+<img alt="Python3" src="https://img.shields.io/badge/-Python3-3776AB?style=flat-square&logo=Python&logoColor=white" />
 >DISCLAIMER
 **Use at your own risk!** I am not responsible if you get banned for spamming or using autotype. I do not take responsibility for how you use this program nor do I recommend you use it in any way that may infringe on any software / buisness.
 
@@ -26,7 +27,7 @@ This is the configuration file used by the program.
 | randomSkip | float | A value from 0 to 1 indicating whether to skip a command randomly to prevent ban and blacklisting |
 | commands    | array   | An array of `command object` |
 
-###### `command object`
+#### command object
 Each command is a object with three keys
 | Key | Type | Value  |
 | ---------- | ------- | ------- |
@@ -84,5 +85,15 @@ You want to send the command `pls beg` after every 45s with a random delay, `pls
 ## Legal Warning
 This application is not endorsed or affiliated with Discord or any bot for Discord. Usage of this application may also cause a violation of the agreed Terms of Service between you and Discord or a bot.
 
+## Prevent Bans and Blacklisting
+- Make a new server with a few channels and invite the bot you want to use the commands on.
+- In `settings.json` make sure to set the `randomSkip` and enable `randomtime` for each command
+- Pause the autotyper often and change channels
+
 ## Bugs / Suggestions
 Report any bugs / glitch, or make a suggestion using the github issues section.
+
+## Support
+Join the Discord Server: [3ddelano Cafe](https://discord.gg/FZY9TqW)
+<br>
+<a href="https://www.buymeacoffee.com/3ddelano" target="_blank"><img height="41" width="174" src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
