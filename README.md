@@ -107,7 +107,7 @@ The following will be the `onetime` object:
     "delay": 4,
     "commands": [
         "pls sell fish all",
-        "pls sell deer all".
+        "pls sell deer all",
         "pls sell bread all"
     ]
 }
