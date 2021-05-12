@@ -101,15 +101,17 @@ You want to send the command `pls beg` after every 45s with a random delay, `pls
 ##### Using onetime commands
 You want the commands `pls sell fish all` , `pls sell deer all` and `pls sell bread all` to be sent when the `F7` key is pressed. The delay between each command is 4s.
 The following will be the `onetime` object:
+```json
 {
-"key": "Key.f7",
-"delay": 4,
-"commands": [
-	"pls sell fish all",
-	"pls sell deer all".
-	"pls sell bread all"
-]
+    "key": "Key.f7",
+    "delay": 4,
+    "commands": [
+        "pls sell fish all",
+        "pls sell deer all".
+        "pls sell bread all"
+    ]
 }
+```
 ## Legal Warning
 This application is not endorsed or affiliated with Discord or any bot for Discord. Usage of this application may also cause a violation of the agreed Terms of Service between you and Discord or a bot.
 
