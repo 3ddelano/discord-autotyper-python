@@ -60,7 +60,7 @@ def init_typer():
         add_command(cmd["text"], int(cmd["waittime"]),
                     cmd["randomtime"] or False)
 
-    
+
 def on_key_press(key):
     if hasattr(key, "char"):
         key = str(key.char)

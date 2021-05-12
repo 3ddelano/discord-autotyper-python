@@ -1,22 +1,22 @@
 {
 	"hotkey": "Key.f5",
 	"exitkey": "Key.f6",
-	"showKeyCode": false,
+	"showKeyCode": true,
 	"commands": [
 		{
 			"text": "first command",
-			"waittime": "45",
+			"waittime": 45,
 			"randomtime": true
 		},
 		{
 			"text": "second command",
-			"waittime": "40",
-			"randomtime": false
+			"waittime": 40,
+			"randomtime": true
 		},
 		{
 			"text": "third command",
-			"waittime": "40",
-			"randomtime": false
+			"waittime": 40,
+			"randomtime": true
 		}
 	]
 }

@@ -40,42 +40,42 @@ Each command is a object with three keys
 You want to send the command `pls beg` after every 45s with a random delay. The start/pause key is F5 and the exit key is F6. Then the following is the `setttings.json` file:
 ```json
 {
-	"hotkey": "Key.f5",
-	"exitkey": "Key.f6",
-	"showKeyCode": false,
-	"commands": [
-		{
-			"text": "pls beg",
-			"waittime": 45,
-			"randomtime": true
-		}
-	]
+  "hotkey": "Key.f5",
+  "exitkey": "Key.f6",
+  "showKeyCode": false,
+  "commands": [
+    {
+      "text": "pls beg",
+      "waittime": 45,
+      "randomtime": true
+    }
+  ]
 }
 ```
 ##### Multiple commands
 You want to send the command `pls beg` after every 45s with a random delay, `pls fish` after 40s with no random delay and `pls hunt` after 40s with a random delay. The start/pause key is F9 and the exit key is F10. Then the following is the `setttings.json` file:
 ```json
 {
-	"hotkey": "Key.f9",
-	"exitkey": "Key.f10",
-	"showKeyCode": false,
-	"commands": [
-		{
-			"text": "pls beg",
-			"waittime": 45,
-			"randomtime": true
-		},
-		{
-			"text": "pls fish",
-			"waittime": 40,
-			"randomtime": false
-		},
-		{
-			"text": "pls hunt",
-			"waittime": 40,
-			"randomtime": true
-		}
-	]
+  "hotkey": "Key.f9",
+  "exitkey": "Key.f10",
+  "showKeyCode": false,
+  "commands": [
+    {
+      "text": "pls beg",
+      "waittime": 45,
+      "randomtime": true
+    },
+    {
+      "text": "pls fish",
+      "waittime": 40,
+      "randomtime": false
+    },
+    {
+      "text": "pls hunt",
+      "waittime": 40,
+      "randomtime": true
+    }
+  ]
 }
 ```
 ## Legal Warning
