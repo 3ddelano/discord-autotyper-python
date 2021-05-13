@@ -1,3 +1,9 @@
+"""discord-autotyper-python
+Delano Lourenco (https://delano-lourenco.web.app)
+Repo: https://github.com/3ddelano/discord-autotyper-python
+"""
+
+
 import json
 from math import floor
 from threading import Timer
@@ -25,6 +31,8 @@ cooldown = False
 onetime_cooldown = False
 
 onetime_delay = int(settings["onetime"]["delay"])
+randomTime = int(settings["randomTime"])
+command_delay = float(settings["commandDelay"])
 controller = Controller()
 
 
@@ -39,20 +47,21 @@ def add_command(text, waittime, isRandom):
     global queue
     global timers
     global cmd_count
+    global randomTime
 
     if started:
-        randomtime = 0
+        random_delay = 0
         if isRandom:
-            randomtime = floor(randint(0, 60))
+            random_delay = floor(randint(0, randomTime))
         if randint(0, 100) / 100 <= settings["randomSkip"]:
             print(
-                f"skipped command: {text} | next in {waittime + randomtime}s | total commands: {cmd_count}")
+                f"skipped command: {text} | next in {waittime + random_delay}s | total commands: {cmd_count}")
         else:
             cmd_count += 1
             queue.append({"text": text, "waittime": waittime})
             print(
-                f"sending cmd: {text} | next in {waittime + randomtime}s | total commands: {cmd_count}")
-        t = Timer(waittime + randomtime, add_command, args=(
+                f"sending cmd: {text} | next in {waittime + random_delay}s | total commands: {cmd_count}")
+        t = Timer(waittime + random_delay, add_command, args=(
             text, waittime, isRandom))
         t.start()
         timers.append(t)
@@ -129,7 +138,7 @@ while not exited:
                 cooldown = True
                 send_command(queue[0]["text"])
                 queue.pop(0)
-                Timer(1.0, remove_cooldown).start()
+                Timer(command_delay, remove_cooldown).start()
 
     if len(onetime_queue) > 0:
         if not onetime_cooldown:

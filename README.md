@@ -25,8 +25,10 @@ This is the configuration file used by the program.
 | ----------- | ------- | ------------------------------------------------------------------------------------------------- |
 | hotkey      | string  | The `KeyCode` of the key to start and stop the autotyping. eg. `Key.f5` or `Key.f6`               |
 | exitkey     | string  | The `KeyCode` of the key used to exit the program. eg. `Key.f5` or `Key.f6`                       |
+| commandDelay     | float  | The delay before sending each command (used for bots which use overall ratelimiting)                       |
 | showKeyCode | boolean | Used as a helper to show the `KeyCode` of the pressed key                                         |
 | randomSkip  | float   | A value from 0 to 1 indicating whether to skip a command randomly to prevent ban and blacklisting |
+| randomTime  | integer   | The maximum value in seconds to choose the random delay between commands (value is added to `waittime`) |
 | commands    | array   | An array of `command object`                                                                      |
 | onetime     | object  | A JS object containing some settings. See `onetime object` below                                  |
 
@@ -54,7 +56,10 @@ You want to send the command `pls beg` after every 45s with a random delay. You 
     "hotkey": "Key.f5",
     "exitkey": "Key.f6",
     "showKeyCode": false,
-    "randomSkip": 0.1,
+    "commandDelay": 1,
+	"showKeyCode": false,
+	"randomSkip": 0.2,
+	"randomTime": 60,
     "commands": [
         {
             "text": "pls beg",
@@ -75,8 +80,10 @@ You want to send the command `pls beg` after every 45s with a random delay, `pls
 {
     "hotkey": "Key.f9",
     "exitkey": "Key.f10",
-    "showKeyCode": false,
-    "randomSkip": 0,
+    "commandDelay": 1,
+	"showKeyCode": false,
+	"randomSkip": 0.2,
+	"randomTime": 60,
     "commands": [
         {
             "text": "pls beg",

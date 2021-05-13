@@ -1,8 +1,10 @@
 {
 	"hotkey": "Key.f5",
 	"exitkey": "Key.f6",
+	"commandDelay": 1,
 	"showKeyCode": true,
 	"randomSkip": 0.1,
+	"randomTime": 60,
 	"commands": [
 		{
 			"text": "first command",
