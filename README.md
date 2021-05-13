@@ -12,7 +12,7 @@ Download the repo as a zip and extract it to a folder. Open a command prompt in 
 # Usage
 - Rename the file `settings-example.json` to `settings.json`.
 - Edit the `settings.json` as per your need (read settings.json section below)
-- Open a command prompt in the folder and run `python autotyper.py`
+- Open a command prompt in the folder and run `python autotyper.py` or simply run the file `run.cmd`
 - Now either go to the discord web app or desktop app and click on the textbox
 - Finally press the hotkey to start the autotyping
 
@@ -57,9 +57,9 @@ You want to send the command `pls beg` after every 45s with a random delay. You 
     "exitkey": "Key.f6",
     "showKeyCode": false,
     "commandDelay": 1,
-	"showKeyCode": false,
-	"randomSkip": 0.2,
-	"randomTime": 60,
+    "showKeyCode": false,
+    "randomSkip": 0.2,
+    "randomTime": 60,
     "commands": [
         {
             "text": "pls beg",
@@ -81,9 +81,9 @@ You want to send the command `pls beg` after every 45s with a random delay, `pls
     "hotkey": "Key.f9",
     "exitkey": "Key.f10",
     "commandDelay": 1,
-	"showKeyCode": false,
-	"randomSkip": 0.2,
-	"randomTime": 60,
+    "showKeyCode": false,
+    "randomSkip": 0.2,
+    "randomTime": 60,
     "commands": [
         {
             "text": "pls beg",
