@@ -29,6 +29,7 @@ controller = Controller()
 
 
 def send_command(text):
+    global controller
     controller.type(text)
     controller.press(Key.enter)
 
@@ -92,6 +93,7 @@ def on_key_press(key):
     global started
     global exited
     if key == settings["hotkey"]:
+        controller.press(Key.backspace)
         started = not started
         if started:
             print("Started.")
@@ -99,6 +101,7 @@ def on_key_press(key):
         else:
             print("Stopped.")
     if key == settings["exitkey"]:
+        controller.press(Key.backspace)
         print("Exited.")
         started = False
         exited = True
@@ -107,6 +110,7 @@ def on_key_press(key):
     global onetime_cooldown
     global onetime_queue
     if key == settings["onetime"]["hotkey"]:
+        controller.press(Key.backspace)
         print("Started onetime cmds.")
         cmds = settings["onetime"]["commands"]
         for i in cmds:
