@@ -12,7 +12,7 @@ Download the repo as a zip and extract it to a folder. Open a command prompt in 
 # Usage
 - Rename the file `settings-example.json` to `settings.json`.
 - Edit the `settings.json` as per your need (read settings.json section below)
-- Open a command prompt in the folder and run `python autotyper.py` or simply run the file `run.cmd`
+- Open a command prompt in the folder and run `python autotyper.py` or simply run the file `run.cmd` (Windows)
 - Now either go to the discord web app or desktop app and click on the textbox
 - Finally press the hotkey to start the autotyping
 
@@ -21,29 +21,29 @@ Download the repo as a zip and extract it to a folder. Open a command prompt in 
 ## settings.json
 This is the configuration file used by the program.
 
-| Key         | Type    | Value                                                                                             |
-| ----------- | ------- | ------------------------------------------------------------------------------------------------- |
-| hotkey      | string  | The `KeyCode` of the key to start and stop the autotyping. eg. `Key.f5` or `Key.f6`               |
-| exitkey     | string  | The `KeyCode` of the key used to exit the program. eg. `Key.f5` or `Key.f6`                       |
-| commandDelay     | float  | The delay before sending each command (used for bots which use overall ratelimiting)                       |
-| showKeyCode | boolean | Used as a helper to show the `KeyCode` of the pressed key                                         |
-| randomSkip  | float   | A value from 0 to 1 indicating whether to skip a command randomly to prevent ban and blacklisting |
-| randomTime  | integer   | The maximum value in seconds to choose the random delay between commands (value is added to `waittime`) |
-| commands    | array   | An array of `command object`                                                                      |
-| onetime     | object  | A JS object containing some settings. See `onetime object` below                                  |
+| Key          | Type    | Value                                                                                                   |
+| ------------ | ------- | ------------------------------------------------------------------------------------------------------- |
+| hotkey       | string  | The `KeyCode` of the key to start and stop the autotyping. eg. `Key.f5` or `Key.f6`                     |
+| exitkey      | string  | The `KeyCode` of the key used to exit the program. eg. `Key.f5` or `Key.f6`                             |
+| commandDelay | float   | The delay before sending each command (used for bots which use overall ratelimiting)                    |
+| showKeyCode  | boolean | Used as a helper to show the `KeyCode` of the pressed key                                               |
+| randomSkip   | float   | A value from 0 to 1 indicating whether to skip a command randomly to prevent ban and blacklisting       |
+| randomTime   | integer | The maximum value in seconds to choose the random delay between commands (value is added to `waittime`) |
+| commands     | array   | An array of `command object`                                                                            |
+| onetime      | object  | A JS object containing some settings. See `onetime object` below                                        |
 
 #### command object
 Each command is a object with three keys
 
-| Key        | Type    | Value     |
-| ---------- | ------- | --------- |
-| text       | string  | The command you want to send |
+| Key        | Type    | Value                                                                                                                  |
+| ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| text       | string  | The command you want to send                                                                                           |
 | waittime   | integer | The time in seconds to wait before sending the command                                                                 |
 | randomtime | boolean | If enabled, a random delay will be added to the `waittime` so as to reduce the chance of getting banned or blacklisted |
 
 #### onetime object
-| Key      | Type    | Value   |
-| -------- | ------- | ------- |
+| Key      | Type    | Value                                                                            |
+| -------- | ------- | -------------------------------------------------------------------------------- |
 | hotkey   | string  | The `KeyCode` of the key to start the onetime commands. eg. `Key.f7` or `Key.f8` |
 | delay    | integer | The time in seconds to wait before sending each of the onetime commands          |
 | commands | array   | An array of strings each containing the command text to be sent.                 |
