@@ -40,6 +40,7 @@ def send_command(text):
     global controller
     controller.type(text)
     controller.press(Key.enter)
+    controller.release(Key.enter)
 
 
 def add_command(text, waittime, isRandom):
