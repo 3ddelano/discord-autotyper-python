@@ -91,6 +91,12 @@ def remove_onetime_cooldown():
     onetime_cooldown = not onetime_cooldown
 
 
+def press_backspace():
+    global controller
+    controller.press(Key.backspace)
+    controller.release(Key.backspace)
+
+
 def on_key_press(key):
     if hasattr(key, "char"):
         key = str(key.char)
@@ -103,7 +109,7 @@ def on_key_press(key):
     global started
     global exited
     if key == settings["hotkey"]:
-        controller.press(Key.backspace)
+        press_backspace()
         started = not started
         if started:
             print("Started.")
@@ -111,7 +117,7 @@ def on_key_press(key):
         else:
             print("Stopped.")
     if key == settings["exitkey"]:
-        controller.press(Key.backspace)
+        press_backspace()
         print("Exited.")
         started = False
         exited = True
@@ -120,7 +126,7 @@ def on_key_press(key):
     global onetime_cooldown
     global onetime_queue
     if key == settings["onetime"]["hotkey"]:
-        controller.press(Key.backspace)
+        press_backspace()
         print("Started onetime cmds.")
         cmds = settings["onetime"]["commands"]
         for i in cmds:
