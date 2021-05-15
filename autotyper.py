@@ -33,7 +33,21 @@ onetime_cooldown = False
 onetime_delay = int(settings["onetime"]["delay"])
 randomTime = int(settings["randomTime"])
 command_delay = float(settings["commandDelay"])
+stop_after = float(settings["stopAfter"])
 controller = Controller()
+
+
+def stop_typer():
+    global started
+    if started:
+        started = False
+        print("Auto stopped.")
+
+
+def start_stop_after():
+    global stop_after
+    if stop_after > 0:
+        Timer(stop_after*60, stop_typer).start()
 
 
 def send_command(text):
@@ -114,6 +128,7 @@ def on_key_press(key):
         if started:
             print("Started.")
             init_typer()
+            start_stop_after()
         else:
             print("Stopped.")
     if key == settings["exitkey"]:

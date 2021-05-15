@@ -4,7 +4,8 @@
 	"commandDelay": 1,
 	"showKeyCode": true,
 	"randomSkip": 0.1,
-	"randomTime": 60,
+	"randomTime": 45,
+	"stopAfter": -1,
 	"commands": [
 		{
 			"text": "first command",
@@ -13,12 +14,12 @@
 		},
 		{
 			"text": "second command",
-			"waittime": 40,
+			"waittime": 30,
 			"randomtime": true
 		},
 		{
 			"text": "third command",
-			"waittime": 40,
+			"waittime": 5,
 			"randomtime": true
 		}
 	],
